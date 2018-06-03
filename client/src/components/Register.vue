@@ -1,34 +1,34 @@
 <template>
-  <v-layout column>
-    <v-flex xs6 offset-xs3>
-      <panel title="Register">
-        <form 
-          name="tab-tracker-form"
-          autocomplete="off">
-          <v-text-field
-            label="Email"
-            v-model="email"
-          ></v-text-field>
-          <br>
-          <v-text-field
-            label="Password"
-            type="password"
-            v-model="password"
-            autocomplete="new-password"
-          ></v-text-field>
-        </form>
-        <br>
-        <div class="danger-alert" v-html="error" />
-        <br>
-        <v-btn
-          dark
-          class="cyan"
-          @click="register">
-          Register
-        </v-btn>
-      </panel>
-    </v-flex>
-  </v-layout>
+  <v-app id="inspire">
+    <v-content>
+      <v-container fluid fill-height>
+        <v-layout align-center justify-center>
+          <v-flex xs12 sm8 md4>
+            <v-card class="elevation-12">
+              <v-toolbar dark color="primary">
+                <v-toolbar-title >Registration Form</v-toolbar-title>
+                <v-spacer></v-spacer>
+                </v-toolbar>
+                <v-card-text>
+                <v-form>
+                  <v-text-field prepend-icon="email" label="Email" type="mail" v-model='email'></v-text-field>
+                  <v-text-field id="password" prepend-icon="lock" label="Password" type="password" v-model='password'></v-text-field>
+                </v-form>
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn class='v-btn' color="primary" @click = 'register'>Sign Up</v-btn>
+              </v-card-actions>
+            </v-card>
+            <br>
+             <div class="danger-alert" v-html='error'/>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-content>
+   
+  </v-app>
+  
 </template>
 
 <script>
@@ -36,8 +36,8 @@ import AuthenticationService from '@/services/AuthenticationService'
 export default {
   data () {
     return {
-      email: 'abc',
-      password : '1234',
+      email: '',
+      password : '',
       error : null
     }
   },
@@ -61,5 +61,8 @@ export default {
 <style scoped>
 .danger-alert {
   color: red;
+}
+.v-btn {
+  border-radius: 5px;
 }
 </style>
