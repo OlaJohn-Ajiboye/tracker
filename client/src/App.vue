@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    <v-app>
-      <!-- <page-header />
-       -->
-      <main>
-        <v-container fluid>
+    <page-header/>
+      <v-app>
+        <main>
+         <v-container fluid>
           <router-view></router-view>
         </v-container>
       </main>
@@ -13,8 +12,11 @@
 </template>
 
 <script>
+import PageHeader from '@/components/PageHeader'
 export default {
-  name: 'App'
+  components: {
+    PageHeader
+  }
 }
 </script>
 

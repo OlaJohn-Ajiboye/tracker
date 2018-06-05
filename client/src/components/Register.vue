@@ -17,7 +17,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn class='v-btn' color="primary" @click = 'register'>Sign Up</v-btn>
+                <v-btn class='v-btn'  color="primary" @click = 'register'>Sign Up</v-btn>
               </v-card-actions>
             </v-card>
             <br>
@@ -33,18 +33,20 @@
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
+
 export default {
   data () {
     return {
       email: '',
       password : '',
-      error : null
+      error : null,
+      success: null
     }
   },
   methods: {
   async register (){
    try {
-    await AuthenticationService.register({
+    const response = await AuthenticationService.register({
     email: this.email,
     password: this.password
     })
@@ -61,6 +63,9 @@ export default {
 <style scoped>
 .danger-alert {
   color: red;
+}
+.success-alert {
+  color: green;
 }
 .v-btn {
   border-radius: 5px;
