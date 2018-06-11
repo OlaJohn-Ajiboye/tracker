@@ -6,7 +6,7 @@
           <v-flex xs12 sm8 md4>
             <v-card class="elevation-12">
               <v-toolbar dark color="primary">
-                <v-toolbar-title >Registration Form</v-toolbar-title>
+                <v-toolbar-title >Login Form</v-toolbar-title>
                 <v-spacer></v-spacer>
                 </v-toolbar>
                 <v-card-text>
@@ -17,18 +17,16 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn class='v-btn'  color="primary" @click = 'register'>Sign Up</v-btn>
+                <v-btn class='v-btn'  color="primary" @click = 'login'>Sign In</v-btn>
               </v-card-actions>
             </v-card>
             <br>
-             <div class="danger-alert" v-html='error'/>
+            <div class="danger-alert" v-html='error'/>
           </v-flex>
         </v-layout>
       </v-container>
     </v-content>
-   
   </v-app>
-  
 </template>
 
 <script>
@@ -38,21 +36,21 @@ export default {
   data () {
     return {
       email: '',
-      password : '',
-      error : null,
+      password: '',
+      error: null,
       success: null
     }
   },
   methods: {
-  async register (){
+  async login (){
    try {
-    const response = await AuthenticationService.register({
-    email: this.email,
-    password: this.password
-    }) 
-   } catch (error){
-     this.error = error.response.data.error
-   }
+      const response = await AuthenticationService.login ({
+       email: this.email,
+        password: this.password
+          })
+          } catch (error){
+         this.error = error.response.data.error
+    }
     }
   }
 }

@@ -1,18 +1,34 @@
 <template>
-  <v-toolbar fixed dark color="primary">
-    <v-toolbar-title >Tabtracker</v-toolbar-title>
+  <v-toolbar fixed dark class='home' color="primary">
+    <v-toolbar-title ><v-btn 
+          flat 
+          dark router 
+          to='root' 
+          >Tabtracker
+          </v-btn>
+          </v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-toolbar-items class="hidden-sm-and-down">
-      <router-link to="home">
-        <v-btn>
-          SIGNUP
-        </v-btn>
-      </router-link>
-
-      <!-- <v-btn flat>Link Two</v-btn>
+    <v-toolbar-items>
+          <v-btn 
+          flat 
+          dark
+          router
+          to="register"
+          >Sign Up</v-btn>
+          <!-- <v-btn flat>Link Two</v-btn>
       <v-btn flat>Link Three</v-btn> -->
-    </v-toolbar-items>
-  </v-toolbar>
+      </v-toolbar-items>
+      <v-toolbar-items>
+          <v-btn 
+          flat 
+          dark
+          router
+          to="login"
+          >Login</v-btn>
+          <!-- <v-btn flat>Link Two</v-btn>
+      <v-btn flat>Link Three</v-btn> -->
+      </v-toolbar-items>
+   </v-toolbar>
 </template>
 
 <script>
@@ -23,7 +39,7 @@ export default {
     }
   },
   methods: {
-  
+   
   }
 }
 </script>
